@@ -79,7 +79,10 @@ for the virtual touchscreen).
 
 This is a workaround. The real fix belongs in the device port: turn off
 cpuquiet while the display is on, and send the power HAL's `INTERACTION`
-hint on touch. Reported to the Pixel 3a port.
+hint on touch. Reported to the Pixel 3a port:
+[cpuquiet and the missing touch boost](https://gitlab.com/ubports/porting/reference-device-ports/android9/google-pixel-3a/google-sargo/-/work_items/2).
+While measuring I also found a screen-off battery drain:
+[the phone resumes every ~4.5 s](https://gitlab.com/ubports/porting/reference-device-ports/android9/google-pixel-3a/google-sargo/-/work_items/3).
 
 ## License
 
