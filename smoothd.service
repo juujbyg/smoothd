@@ -1,0 +1,21 @@
+[Unit]
+Description=smoothd: touch boost and online cores while the screen is on
+After=lxc-android-config.service
+Wants=lxc-android-config.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -I /root/smoothd/smoothd.py
+Restart=on-failure
+RestartSec=5
+# It only reads one input device and writes CPU, bus and scheduler knobs in /sys and /proc/sys.
+NoNewPrivileges=yes
+PrivateNetwork=yes
+PrivateTmp=yes
+ProtectSystem=full
+ProtectHome=read-only
+ProtectControlGroups=no
+MemoryMax=40M
+
+[Install]
+WantedBy=multi-user.target
